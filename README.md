@@ -7,8 +7,8 @@
 ### Table of contents
 
 - [Task](#Task)
-- [Features of the work](#Features of the work)
-- [Work results](#Work results)
+- [Features of the work](#Features-of-the-work)
+- [Work results](#Work-results)
 
 ---
 
