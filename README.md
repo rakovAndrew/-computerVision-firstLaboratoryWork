@@ -6,9 +6,9 @@
 
 ### Table of contents
 
-- [Task](#Task)
-- [Features of the work](#Features of the work)
-- [Work results](#Work results)
+- [Task] (#Task)
+- [Features of the work] (#Features of the work)
+- [Work results] (#Work results)
 
 ---
 
@@ -34,15 +34,16 @@
 ### Work results
 
 #### Start screen 
-![](../../../../Ентернет/startScreen.png)
+![startScreen](https://user-images.githubusercontent.com/70765297/160289024-7ac6202f-ba00-4271-99fe-80d2c057f71c.png)
 
 #### Middle of the way
-![](sources/workResult/theHalfOfTheRoboPath.jpg)
+![theHalfOfTheRoboPath](sources/workResult/theHalfOfTheRoboPath.jpg)
 
 #### App work result
-![](../../../../Ентернет/appWorkResult.png)
+![appWorkResult](https://user-images.githubusercontent.com/70765297/160289044-55b1b1b5-0a97-403b-b47c-520c7a9a5949.png)
 
 #### Video of the app work (`SIN_WAVE_FREQUENCY_INCREASER` is 2)
-
+https://user-images.githubusercontent.com/70765297/160289062-f8b98bd4-5ea2-4927-846d-791d37aa43a6.mp4
 
 #### Video of the app work (`SIN_WAVE_FREQUENCY_INCREASER` is 8)
+https://user-images.githubusercontent.com/70765297/160289069-c2fbda33-a559-4c48-a944-ee52fe777df6.mp4
