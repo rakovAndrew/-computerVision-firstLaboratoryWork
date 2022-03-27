@@ -13,7 +13,8 @@ static const double BACKGROUND_SIZE_REDUCER = 1.4;
 
 static const int DRONE_SIZE_REDUCER = 2;
 
-int main() {
+int main()
+{
     Mat robo_path = imread("sources/background/grass.png");
     resize(
             robo_path,
@@ -26,8 +27,8 @@ int main() {
 
     Mat drone = imread("sources/robot/drone.jpg");
     rotate(drone, drone, ROTATE_90_COUNTERCLOCKWISE);
-    resize(drone, 
-           drone, 
+    resize(drone,
+           drone,
            Size(lround(drone.cols / DRONE_SIZE_REDUCER), lround(drone.rows / DRONE_SIZE_REDUCER)),
            INTER_AREA);
     drone.convertTo(drone, -1, 2, 2);
@@ -39,14 +40,14 @@ int main() {
     int horizontal_step = lround((end_horizontal_position - start_horizontal_position) / POINT_QUANTITY);
     int sin_amplitude = lround((robo_path.rows - drone.rows) / 2);
 
-    for(int step_quantity = 0; step_quantity < POINT_QUANTITY; step_quantity++)
+    for (int step_quantity = 0; step_quantity < POINT_QUANTITY; step_quantity++)
     {
         vertical_image_position[step_quantity] = lround(robo_path_sin.rows / 2 +
-                                                        sin_amplitude * sin (
-                                                                        (step_quantity * CV_PI * SIN_WAVE_FREQUENCY_INCREASER) /
-                                                                            (POINT_QUANTITY * SIN_WAVE_FREQUENCY_REDUCER)
-                                                                        )
-                                                 );
+                                                        sin_amplitude * sin(
+                                                                (step_quantity * CV_PI * SIN_WAVE_FREQUENCY_INCREASER) /
+                                                                (POINT_QUANTITY * SIN_WAVE_FREQUENCY_REDUCER)
+                                                        )
+        );
     }
 
     imshow("robo_path", robo_path);
@@ -63,14 +64,15 @@ int main() {
     {
         int horizontal_image_position = start_horizontal_position;
 
-        for(int step_quantity = 0; step_quantity < POINT_QUANTITY; step_quantity++)
+        for (int step_quantity = 0; step_quantity < POINT_QUANTITY; step_quantity++)
         {
-            Rect roi(Point(horizontal_image_position, vertical_image_position[step_quantity] - drone.rows / 2), Size(drone.cols, drone.rows));
+            Rect roi(Point(horizontal_image_position, vertical_image_position[step_quantity] - drone.rows / 2),
+                     Size(drone.cols, drone.rows));
             Mat robo_path_drone_roi = robo_path_final(roi);
 
             cvtColor(drone, drone_gray, COLOR_RGB2GRAY);
 
-            threshold(drone_gray, drone_thresholded , 254,  255,  THRESH_BINARY);
+            threshold(drone_gray, drone_thresholded, 254, 255, THRESH_BINARY);
 
             bitwise_or(robo_path_drone_roi, robo_path_drone_roi, drone_bitwised_or, drone_thresholded);
 
@@ -95,8 +97,8 @@ int main() {
             imshow("robo_path", robo_path_final);
             waitKey(7);
 
-            if(horizontal_image_position > (lround(end_horizontal_position / 2) - horizontal_step) &&
-               horizontal_image_position < (lround(end_horizontal_position / 2) + horizontal_step))
+            if (horizontal_image_position > (lround(end_horizontal_position / 2) - horizontal_step) &&
+                horizontal_image_position < (lround(end_horizontal_position / 2) + horizontal_step))
             {
                 imwrite("sources/workResult/theHalfOfTheRoboPath.jpg", robo_path_final);
             }
